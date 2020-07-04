@@ -1,2 +1,2 @@
-# project-falcon
-Website for Elevate the Future's Project Falcon
+# Project Falcon
+This is where we test/develop the Project Falcon website.

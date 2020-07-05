@@ -125,22 +125,24 @@ body {
 	margin-top: 5%;
 }
 
-.col-6 {
+#navbar .col-4 {
 	display: flex;
 	justify-content: center;
 }
 
-.col-6 button {
+#navbar .col-4 button {
 	background-color: transparent;
 	color: white;
 	font-weight: 600;
 	border: none;
+	transition: transfom .5s;
 }
 
-.col-6 button:hover {
+#navbar .col-4 button:hover {
 	color: #d8d8d8;
 	background-color: transparent;
 	border: none;
+	transform: scale(1.1);
 }
 
 .hero {
@@ -179,6 +181,8 @@ div.scroll-partners {
 	overflow-x: auto;
 	overflow-y: hidden;
 	white-space: nowrap;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 }
   
 div.scroll-partners img {
@@ -229,8 +233,9 @@ img.logo {
 }
 
 .row-info {
-	width: 90%;
-	margin-left: 5%;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
 	color: white;
 	margin-top: -5%;
 }

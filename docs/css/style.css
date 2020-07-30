@@ -7,10 +7,6 @@ html::-webkit-scrollbar-thumb {
 	border-radius: 5px;
 }
 
-/* html::-webkit-scrollbar-track {
-	background: white;
-} */
-
 body {
 	background-color: #141618;
 	font-family: Poppins;

@@ -41,7 +41,6 @@
     height: 100%;
     display: flex;
     animation: scrolling var(--marquee-animation-duration) linear infinite;
-    filter: grayscale(85%);
 }
 .marquee-content:hover {
   animation-play-state: paused;
@@ -60,6 +59,7 @@
     max-height: 100%;
     font-size: calc(var(--marquee-height)*3/4); /* 5rem; */
     white-space: nowrap;
+    filter: grayscale(100%);
 }
 
 .marquee-content li img {

@@ -1,3 +1,12 @@
+html::-webkit-scrollbar {
+	width: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+	background: linear-gradient( #e85858, #5ab3f2);
+	border-radius: 5px;
+}
+
 body {
 	background-color: #141618;
 	font-family: Poppins;
@@ -170,49 +179,6 @@ body {
 	font-size: 5rem;
 	-webkit-text-stroke: 2px white;
 }
-
-/* Partners */
-div.scroll-partners::-webkit-scrollbar {
-	display: none; /*  Hides Scrollbar */
-}
-
-div.scroll-partners {
-	background-color: #fff;
-	overflow-x: auto;
-	overflow-y: hidden;
-	white-space: nowrap;
-	padding-top: 2rem;
-	padding-bottom: 2rem;
-}
-  
-div.scroll-partners img {
-	display: inline-block;
-	padding: 0px;
-	margin-right: 8vw;
-	margin-left: 8vw;
-	transition: transform .2s; /* Animation */
-}
-
-div.scroll-partners img.large {
-	transform: scale(0.8)
-}
-
-div.scroll-partners img.small {
-	transform: scale(1.2)
-}
-  
-div.scroll-partners img:hover {
-	transform: scale(1.2);
-}
-
-div.scroll-partners img.large:hover {
-	transform: scale(1)
-}
-
-div.scroll-partners img.small:hover {
-	transform: scale(1.4)
-}
-/* End of Partners */
 
 .row-logos {
 	width: 100%;

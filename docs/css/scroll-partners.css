@@ -1,20 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #fff;
-    color: #fff;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 :root {
     --marquee-width: 80vw;
     --marquee-height: 20vh;
@@ -23,6 +8,10 @@ body {
     --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
 }
 
+.partners-container {
+    display: flex;
+    justify-content: center;
+}
 .marquee {
     width: var(--marquee-width);
     height: var(--marquee-height);

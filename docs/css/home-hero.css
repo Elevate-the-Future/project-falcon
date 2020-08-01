@@ -43,9 +43,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent;
     z-index: 10;
-    mix-blend-mode: color;
 }
 
 #home-hero img {
@@ -62,8 +60,23 @@ div#hero-text {
     position: relative;
     color: #fff;
     z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div#hero-text h2, h3 {
+    text-shadow: -1px 1px 2px #23430C,
+				  1px 1px 2px #23430C,
+				  1px -1px 0 #23430C,
+                  -1px -1px 0 #23430C;
+    margin: 0px;
 }
 
 div#hero-text h2 {
     font-size: 10em;
+}
+
+div#hero-text h3 {
+    font-size: 2em;
 }

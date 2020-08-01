@@ -43,7 +43,7 @@
     animation: scrolling var(--marquee-animation-duration) linear infinite;
 }
 .marquee-content:hover {
-  animation-play-state: paused;
+    animation-play-state: paused;
 }
 @keyframes scrolling {
     0% { transform: translateX(0); }
@@ -53,7 +53,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* text-align: center; */
     flex-shrink: 0;
     width: var(--marquee-element-width);
     max-height: 100%;
@@ -67,7 +66,32 @@
     transition: transform 0.2s;
 }
 
-.marquee-content li img:hover {
+img.xlarge-partner {
+    transform: scale(0.7);
+}
+
+img.xlarge-partner:hover {
+    transform: scale(0.9);
+}
+
+
+img.large-partner {
+    transform: scale(0.8);
+}
+
+img.large-partner:hover {
+    transform: scale(1);
+}
+
+img.small-partner {
+    transform: scale(1.2);
+}
+
+img.small-partner:hover {
+    transform: scale(1.4);
+}
+
+img.medium-partner:hover {
     transform: scale(1.2);
 }
 

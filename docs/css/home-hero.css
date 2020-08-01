@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+html::-webkit-scrollbar {
+	width: 7px;
+}
+
+html::-webkit-scrollbar-thumb {
+	background: linear-gradient( #e85858, #5ab3f2);
+	border-radius: 5px;
+}
+
+body {
+    background: #141618;
+}
+
+#home-hero{
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home-hero::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #141618, transparent);
+    z-index: 10;
+}
+
+#home-hero::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 10;
+    mix-blend-mode: color;
+}
+
+#home-hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+div#hero-text {
+    position: relative;
+    color: #fff;
+    z-index: 999;
+}
+
+div#hero-text h2 {
+    font-size: 10em;
+}

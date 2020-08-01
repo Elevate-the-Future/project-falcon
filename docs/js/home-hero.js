@@ -17,7 +17,7 @@ window.addEventListener('scroll', function(){
     mountain_back.style.top = value * 0.4 + 'px';
     mountain_middle.style.top = value * 0.2 + 'px';
     // text
-    text.style.top = value + 'px';   
+    text.style.top = value * 0.45 + 'px';   
 
 
 })

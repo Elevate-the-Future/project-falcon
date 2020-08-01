@@ -51,15 +51,19 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    max-height: 100%;
     object-fit: cover;
     pointer-events: none;
+}
+
+#hero-mountain-front, #hero-mountain-middle, #hero-planet {
+    z-index: 3;
 }
 
 div#hero-text {
     position: relative;
     color: #fff;
-    z-index: 999;
+    z-index: 5;
     display: flex;
     flex-direction: column;
     align-items: center;

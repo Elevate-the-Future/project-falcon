@@ -8,6 +8,26 @@
     --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
 }
 
+#partners .title-container {
+    
+    font-family: Poppins, sans-serif;
+    font-size: 2rem;
+    /* color: #141618; */
+    display: flex;
+    justify-content: center;
+}
+
+#partners .title-container h2 {
+    background: linear-gradient(to right, #db3b4b, #3f80e2);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* #partners {
+    max-height: 75vh;
+    overflow-y: hidden;
+} */
+
 .partners-container {
     display: flex;
     justify-content: center;
@@ -71,7 +91,7 @@ img.xlarge-partner {
 }
 
 img.xlarge-partner:hover {
-    transform: scale(0.9);
+    transform: scale(0.85);
 }
 
 

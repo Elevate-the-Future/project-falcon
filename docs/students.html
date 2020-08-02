@@ -1,9 +1,25 @@
 <html>
     <head>
         <title>For Students | Project Falcon</title>
-        <link rel="stylesheet" href="css/home-hero.css" >
+        <link rel="stylesheet" href="css/home-hero.css">
+        <link rel="stylesheet" href="css/scroll-partners.css">
     </head>
     <body>
+        <style>
+            html::-webkit-scrollbar {
+                width: 7px;
+            }
+
+            html::-webkit-scrollbar-thumb {
+                background: linear-gradient( #db3b4b, #3f80e2);
+                border-radius: 5px;
+            }
+
+            body {
+                background: #141618;
+            }
+        </style>
+
         <section id="home-hero">
             <img src="images/home-hero/bg.jpg" id="hero-bg">
             <img src="images/home-hero/planet.png" id="hero-planet">
@@ -11,11 +27,39 @@
             <img src="images/home-hero/mountain-middle.png" id="hero-mountain-middle">
             <img src="images/home-hero/mountain-front.png" id="hero-mountain-front">
             <div id="hero-text">
-                <h2>For Students</h2>
-                <h3>A unique HTML/CSS course that allows students to work with real clients.</h3>
+                <h2>Project Falcon</h2>
+                <h3>Free websites for small businesses.</h3>
+                <h3>Free HTML/CSS class for students.</h3>
             </div>
         </section>
-        <div id="after-hero" style="z-index: -1;height: 2000px;"></div>
+        <!-- Partners -->
+	    <section id="partners" style="background-color: #fff;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="background-color: #141618">
+                <path fill="#fff" fill-opacity="1" d="M0,288L1440,224L1440,320L0,320Z"></path>
+            </svg>
+            <div class="title-container">
+                <h2>Falcon Partners</h2>
+            </div>
+            <div class="partners-container">
+                <div class="marquee">
+                    <ul class="marquee-content">
+                        <!-- Try to have significant one near the middle -->
+                        <li><a href="https://cupertino-chamber.org/" target="_blank"><img class="large-partner" src="images/partners/cupertino-commerce.png"></a></li>
+                        <li><a href="https://www.svcentralchamber.com/" target="_blank"><img class="xlarge-partner" src="images/partners/svcentral-commerce.png"></a></li>
+                        <li><a href="https://www.microsoft.com/en-us/" target="_blank"><img class="medium-partner" src="images/partners/microsoft.png"></a></li>
+                        <li><a href="https://grow.google/" target="_blank"><img class="medium-partner" src="images/partners/grow-google.png"></a></li>
+                        <li><a href="https://www.t-mobile.com/" target="_blank"><img class="medium-partner" src="images/partners/tmobile.png"></a></li>
+                        <li><a href="https://www.cupertino.org/" target="_blank"><img class="medium-partner" src="images/partners/city-cupertino.png"></a></li>
+                        <li><a href="https://www.kiva.org/" target="_blank"><img class="medium-partner" src="images/partners/kiva.png"></a></li>
+                        <li><a href="https://novarisconsulting.com/" target="_blank"><img class="medium-partner" src="images/partners/novaris.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="background-color:#141618;">
+                <path fill="#fff" fill-opacity="1" d="M0,96L1440,32L1440,0L0,0Z"></path>
+            </svg>
+	    </section>
+	    <!-- End of Partners -->
 
 
         
@@ -28,5 +72,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <!-- Add scripts -->
         <script src="js/home-hero.js"></script>
+        <script src="js/scroll-partners.js"></script>
     </body>
 </html>

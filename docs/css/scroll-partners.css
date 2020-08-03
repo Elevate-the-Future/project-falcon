@@ -21,6 +21,8 @@
     background: linear-gradient(to right, #db3b4b, #3f80e2);
     -webkit-background-clip: text;
     color: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* #partners {

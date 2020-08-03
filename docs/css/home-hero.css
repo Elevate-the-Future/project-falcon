@@ -57,16 +57,11 @@ div#hero-text {
 }
 
 div#hero-text h2, h3 {
-    text-shadow: -2px 2px 2px #141618,
-				  2px 2px 2px #141618,
-				  2px -2px 0 #141618,
-                  -2px -2px 0 #141618;
-    margin: 0px;
-    color: #e59797;
-    
-    /* background: linear-gradient(to right, #db3b4b, #3f80e2);
+    background: linear-gradient(to right, #db3b4b, #3f80e2);
     -webkit-background-clip: text;
-    color: transparent; */
+    -webkit-text-stroke: 2px #141618 !important;
+    color: transparent;
+    margin: 0px;
 }
 
 div#hero-text h2 {

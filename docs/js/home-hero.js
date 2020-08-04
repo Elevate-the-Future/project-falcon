@@ -1,4 +1,3 @@
-// let bg = document.getElementById('hero-bg');
 let planet = document.getElementById('hero-planet');
 let mountain_back = document.getElementById('hero-mountain-back');
 let mountain_middle = document.getElementById('hero-mountain-middle');
@@ -7,9 +6,7 @@ let text = document.getElementById('hero-text');
 
 window.addEventListener('scroll', function(){
     var value = window.scrollY;
-    
-    // background
-    // bg.style.top = -value * 0.2 + 'px';
+
     // planet
     planet.style.left = -value * 0.5 + 'px';
     planet.style.top = value * 0.8 + 'px';

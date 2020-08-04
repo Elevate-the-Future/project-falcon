@@ -1,5 +1,83 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
 
+/*Hero Parallax*/
+#home-hero{
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home-hero::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #141618, transparent);
+    z-index: 10;
+}
+
+#home-hero::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+#home-hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+#hero-mountain-front, #hero-mountain-middle, #hero-planet {
+    z-index: 3;
+}
+
+div#hero-text {
+    position: relative;
+    color: #fff;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div#hero-text h2, h3 {
+    background: linear-gradient(to right, #db3b4b, #3f80e2);
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 2px #141618 !important;
+    color: transparent;
+    margin: 0px;
+}
+
+div#hero-text h2 {
+    font-size: 10em;
+}
+
+div#hero-text h3 {
+    font-size: 2em;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+}
+/*End of Hero Parallax*/
+
+/*Scroll Partners Section*/
 :root {
     --marquee-width: 80vw;
     --marquee-height: 20vh;
@@ -126,3 +204,4 @@ img.medium-partner:hover {
     }
     .marquee:before, .marquee:after { width: 5rem; }
 }
+/*End of Scroll Partners*/

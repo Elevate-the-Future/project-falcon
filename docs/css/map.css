@@ -1,0 +1,280 @@
+@font-face {
+  font-family: manropebold;
+  src: url(manropebold.otf);
+}
+
+@font-face {
+  font-family: manropelight;
+  src: url(manropelight.otf);
+}
+
+@font-face {
+  font-family: manropemedium;
+  src: url(manropemedium.otf);
+}
+
+@font-face {
+  font-family: manrope;
+  src: url(manroperegular.otf);
+}
+
+@font-face {
+  font-family: manropesemibold;
+  src: url(manropesemibold.otf);
+}
+
+@font-face {
+  font-family: manropethin;
+  src: url(manropethin.otf);
+}
+
+.local-resource-tool {
+	font-family: manrope;
+	background-color: white;
+	width: 100%;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+}
+
+
+#phoneNumbers::-webkit-scrollbar, #panel::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+#phoneNumbers::-webkit-scrollbar-track, #panel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+#phoneNumbers::-webkit-scrollbar-thumb, #panel::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+#phoneNumbers::-webkit-scrollbar-thumb:hover, #panel::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+#map {
+  height: 60vh;
+  width: 100%;
+  border-radius: 10px;
+  height: 60vh;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+  display: none;
+}
+
+/* TODO: Step 4A1: Make a generic sidebar */
+#panel {
+	width: 100%;
+	height: 62vh;
+ 	 margin-top: 1vh;
+	background-color: white;
+	z-index: 0;
+	overflow-x: hidden;
+	transition: all .2s ease-out;
+	display: none;
+}
+
+.open {
+    width: 250px;
+}
+
+/* Styling for place details */
+.hero {
+    width: 100%;
+    object-fit: cover;
+    max-height: 166px;
+    display: block;
+}
+
+.place,
+p {
+    font-family: manropebold;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.details {
+    color: darkslategrey;
+    font-family: manrope;
+}
+
+a {
+    text-decoration: none;
+    color: cadetblue;
+}
+
+.map-info {
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 2%;
+	margin-bottom: 3%;
+}
+
+.search {
+	width: 89%;
+	margin-left: 5%;
+	margin-top: 3%;
+}
+
+.searchauto {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.panel, .map, .numbers, .list {
+	border-radius: 10px;
+	border: 1px solid #d8d8d8;
+	width: 95%;
+	margin-left: 2.5%;
+	background-color: white;
+}
+
+.map {
+	margin-left: 1%;
+}
+
+.panel {
+	padding: 0px;
+}
+
+.map h3, .panel h3, .list h3, .numbers h3 {
+	font-family: manropebold;
+	margin-top: 5px;
+}
+
+.map h6, .panel h6, .list h6, .numbers h6 {
+	font-family: manropelight;
+}
+
+.temp-img {
+	width: 100%;
+	border-radius: 10px;
+	height: 60vh;
+	margin-bottom: 2vh;
+	object-fit: cover;
+}
+
+.numbers .title {
+	padding-top: 1.5vh;
+	padding-bottom: 1.5vh;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	position: sticky;
+	top: 0;
+	background-color: white;
+}
+
+.numbers .title h4 {
+	font-family: manropebold;
+}
+
+.numbers .number {
+	padding-top: 1.5vh;
+	margin-top: 1.5vh;
+	border-bottom: 1px solid black;
+}
+
+.numbers .number h5 {
+	font-family: manropesemibold;
+}
+
+.numbers .number p {
+	padding: 0px;
+	font-family: manropethin;
+}
+
+#phoneNumbers {
+	height: 60vh;
+	overflow-y: auto;
+	visibility: hidden;
+}
+
+.info-text {
+	padding-left: 2vh;
+	padding-right: 2vh;
+}
+
+.searchbar {
+	display: inline;
+}
+
+.header-text {
+	width: 89%;
+	margin-left: 6%;
+	margin-top: 3%;
+}
+
+.header-text h1 {
+	font-family: manropebold;
+}
+
+.header-text h6 {
+	font-family: manropethin;
+	margin-top: 2vh;
+}
+
+.designed {
+	width: 90%;
+	margin-left: 5%;
+	font-size: 10px;
+	font-family: manropelight;
+}
+
+@media only screen and (max-width: 1200px) {
+	.panel, .map, .numbers, .list {
+	border-radius: 10px;
+	border: 1px solid #d8d8d8;
+	width: 98%;
+	margin-left: 0%;
+	margin-top: 2%;
+	}
+	.searchbarbar {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+	.panel {
+		margin-left: 7.33%;
+	}
+}
+
+@media only screen and (max-width: 920px) {
+	.searchbar {
+		display: flex; 
+		justify-content: center;
+		width: 100%;
+		padding: 0px;
+	}
+	.searchauto {
+		display: flex; 
+		justify-content: flex-start;
+		width: 100%;
+		padding: 0px;
+	}
+}
+
+.btn-primary {
+	background-color: blue;
+	color: white;
+	border: none;
+}
+
+.btn-primary:active {
+	background-color: black;
+	color: white;
+	border: none;
+}
+
+.btn-primary:hover {
+	background-color: black;
+	color: white;
+	border: none;
+}

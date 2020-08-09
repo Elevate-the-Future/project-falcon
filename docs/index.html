@@ -7,7 +7,7 @@
 	<!-- Add Stylesheets Below -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="css/index.css">
-
+	<link rel="stylesheet" href="css/map.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1" user-scalable="no">
 </head>
 <body>
@@ -136,6 +136,483 @@
 	</div>
 	<p style="background-color: white; text-align: center; margin-bottom: 0px; font-size: 20px; padding-bottom: 5vh;"><a href="our-work.html" style="color: black;">View All Of Our Sites Here &#x2192;</a></p>
 
+	<div class="local-resource-tool">
+		<div class="row search">
+			<div class="col-lg-6 d-lg-flex d-flex col-12 searchbar">
+				<div class="searchbarbar">
+					<label for="inputPassword2" class="sr-only">Zip Code</label>
+					<input style="width: 50%; display: inline;" type="text" class="form-control" id="zip" placeholder="Zip Code">
+					<button style="display: inline; margin-top: 4px;" class="btn btn-primary mb-2" onclick="initMapZip()">Enter</button>
+				</div>
+			</div>
+			<div class="col-lg-6 col-12 searchauto d-none d-lg-flex">
+				<button id="button" class="btn btn-primary mb-2">Auto-Enable Location</button>
+			</div>
+		</div>
+		<div class="row map-info">
+			<div class="col-xl-5 col-lg-6 col-12 map">
+				<h3>Find</h3>
+				<h6>Mental health resources in your area.</h6>
+				<img id="temp-img" class="temp-img" src="examplemap.png">
+				<div id="map"></div>
+			</div>
+			<div class="col-xl-3 col-lg-5 d-lg-block d-none col-12 panel">
+				<div class="info-text">
+					<h3>Info</h3>
+					<h6>About specific locations on the map.</h6><br id="temp-br">
+					<h6 id="temp-text"></h6>
+				</div>
+				<div id="panel"></div>
+			</div>
+			<div class="col-xl-3 col-12 numbers">
+				<h3>Numbers</h3>
+				<h6 style="margin-bottom: 1.5vh;">For hotlines & clinics near you.</h6>
+				<div id="phoneNumbers">
+				</div>
+			</div>
+		</div>
+		<p class="designed">Designed by <a href="">Pattur Web Design</a></p>
+	</div>
+
+  	<script>
+		let pos;
+		let map;
+		let bounds;
+		let infoWindow;
+		let currentInfoWindow;
+		let service;
+		let infoPane;
+		let numbersPane;
+		document.getElementById('button').onclick = function initMap() {
+		    bounds = new google.maps.LatLngBounds();
+		    infoWindow = new google.maps.InfoWindow;
+		    currentInfoWindow = infoWindow;
+			infoPane = document.getElementById('panel');
+			numbersPane = document.getElementById('phoneNumbers')
+		    if (navigator.geolocation) {
+		    navigator.geolocation.getCurrentPosition(position => {
+		        pos = {
+		        lat: position.coords.latitude,
+		        lng: position.coords.longitude
+		        };
+		        map = new google.maps.Map(document.getElementById('map'), {
+		        center: pos,
+		        zoom: 15
+		        });
+		        bounds.extend(pos);
+
+		        infoWindow.setPosition(pos);
+		        infoWindow.setContent('Location found.');
+		        infoWindow.open(map);
+		        map.setCenter(pos);
+
+				getNearbyPlaces(pos);
+		    }, () => {
+		        handleLocationError(true, infoWindow);
+		    });
+		    } else {
+		    handleLocationError(false, infoWindow);
+		    }
+		    document.getElementById("map").style.display = "block";
+			document.getElementById("temp-img").style.display = "none";
+		}
+
+		let geocoder;
+		let address;
+		function initMapZip() {
+		    bounds = new google.maps.LatLngBounds();
+		    infoWindow = new google.maps.InfoWindow;
+		    currentInfoWindow = infoWindow;
+			infoPane = document.getElementById('panel');
+			numbersPane = document.getElementById('phoneNumbers')
+
+			geocoder = new google.maps.Geocoder();
+			address = document.getElementById('zip').value;
+			let pos;
+			geocoder.geocode( { 'address': address}, function(results, status) {
+		      if (status == google.maps.GeocoderStatus.OK) {
+		        console.log(results);
+		        console.log(results[0].geometry.location);
+		        pos = results[0].geometry.location;
+		        map = new google.maps.Map(document.getElementById('map'), {
+		        center: pos,
+		        zoom: 15
+		        });
+		        bounds.extend(pos);
+
+		        infoWindow.setPosition(pos);
+		        infoWindow.setContent('Location found.');
+		        infoWindow.open(map);
+		        map.setCenter(pos);
+
+				getNearbyPlaces(pos);
+				document.getElementById("map").style.display = "block";
+			document.getElementById("temp-img").style.display = "none";
+		      } else {
+		        alert("Geocode was not successful for the following reason: " + status);
+		      }
+		    });
+		}
+
+		function handleLocationError(browserHasGeolocation, infoWindow) {
+		    pos = {lat: 37.3382, lng: -121.8863};
+		    map = new google.maps.Map(document.getElementById('map'), {
+		    center: pos,
+		    zoom: 15
+		    });
+
+		    infoWindow.setPosition(pos);
+		    infoWindow.setContent(browserHasGeolocation ?
+		    'You have denied the use of geolocation. Please click \'allow\' or enter your ZIP Code instead.' :
+		    'Error: Your browser doesn\'t support geolocation.');
+		    infoWindow.open(map);
+		    currentInfoWindow = infoWindow;		
+		}
+
+		function getNearbyPlaces(position) {
+		    let request = {
+		    location: position,
+		    rankBy: google.maps.places.RankBy.DISTANCE,
+		    keyword: 'mental health'
+		    };
+
+		    service = new google.maps.places.PlacesService(map);
+		    service.nearbySearch(request, nearbyCallback);
+		}
+
+		function nearbyCallback(results, status) {
+		    if (status == google.maps.places.PlacesServiceStatus.OK) {
+		    createMarkers(results);
+		    }
+		}
+
+		function createMarkers(places) {
+		    places.forEach(place => {
+		    let marker = new google.maps.Marker({
+		        position: place.geometry.location,
+		        map: map,
+		        title: place.name
+		    });
+			google.maps.event.addListener(marker, 'click', () => {
+				document.getElementById("temp-text").style.display = "none";
+				document.getElementById("temp-br").style.display = "none";
+				document.getElementById("panel").style.display = "block";
+			    let request = {
+			    placeId: place.place_id,
+			    fields: ['name', 'formatted_address', 'geometry', 'rating',
+			        'website', 'photos', 'formatted_phone_number']
+			    };
+
+
+			    service.getDetails(request, (placeResult, status) => {
+			    showDetails(placeResult, marker, status)
+			    });
+			});
+
+		    bounds.extend(place.geometry.location);
+		    });
+
+		    var mainmarker = new google.maps.Marker({
+		    	position: places[0].geometry.location,
+		        map: map,
+		        title: places[0].name
+		    });
+			mainmarker.addListener('click', () => {
+				document.getElementById("temp-text").style.display = "none";
+				document.getElementById("temp-br").style.display = "none";
+				document.getElementById("panel").style.display = "block";
+			    let request = {
+			    placeId: places[0].place_id,
+			    fields: ['name', 'formatted_address', 'geometry', 'rating',
+			        'website', 'photos', 'formatted_phone_number', 'address_components']
+			    };
+
+
+			    service.getDetails(request, (placeResult, status) => {
+			    if(placeResult.address_components.length == 6) {
+			    	printHotline(placeResult.address_components[3].long_name);
+			    }
+			    else {
+			    	printHotline(placeResult.address_components[5].long_name);
+			    }
+			    printMarkers(places);
+			    showDetails(placeResult, mainmarker, status);
+			    });
+			});
+			new google.maps.event.trigger( mainmarker, 'click' );
+
+		    map.fitBounds(bounds);
+		}
+
+			function showDetails(placeResult, marker, status) {
+			    if (status == google.maps.places.PlacesServiceStatus.OK) {
+			    let placeInfowindow = new google.maps.InfoWindow();
+			    placeInfowindow.setContent('<div><strong>' + placeResult.name +
+			        '</strong><br>' + 'Rating: ' + placeResult.rating + '</div>');
+			    placeInfowindow.open(marker.map, marker);
+			    currentInfoWindow.close();
+			    currentInfoWindow = placeInfowindow;
+			    showPanel(placeResult);
+			    console.log(placeResult);
+			    } else {
+			    console.log('showDetails failed: ' + status);
+			    }
+			}
+
+			/* WORK ON THIS TOMORROW! */
+
+			var n1 = {name: "Suicide Prevention Service of the Central Coast", number: "+1(877)663-5433", state:"California"};
+			var n2 = {name: "StarVista", number: "+1(650)579-0350", state:"California"};
+			var n3 = {name: "Crisis Support Services of Alameda County", number: "+1(800)309-2131", state: "California"};
+			var n4 = {name: "Family & Children's Services Oklahoma", number: "+1(918)744-4800", state: "Oklahoma"};
+			var n5 = {name: "Lines For Life Oregon", number: "+1(800)273-8255", state: "Oregon"};
+			var n6 = {name: "Crisis Connections", number: "+1(866)427-4747", state: "Washington"};
+			var n7 = {name: "Crisis Connections Teen Line", number: "+1(866)833-6546", state: "Washington"};
+			var n8 = {name: "Idaho Suicide Prevention Hotline", number: "+1(208)398-4357", state: "Idaho"};
+			var n9 = {name: "Voices of Hope Montana", number: "+1(406)453-4357", state: "Montana"};
+			var n10 = {name: "Central Arizona Crisis Line (Local)", number: "+1(602)622-9444", state: "Arizona"};
+			var n11 = {name: "Central Arizona Crisis Line", number: "+1(800)631-1314", state: "Arizona"};
+			var n12 = {name: "Emergence Health Network", number: "+1(877)562-6467", state: "Texas"};
+			var n13 = {name: "Agora Cares", number: "+1(505)277-3013", state: "New Mexico"};
+			var n14 = {name: "University of Utah Health", number: "+1(505)277-3013", state: "Utah"};
+			var n15 = {name: "Metro Crisis Services, Rocky Mountain Crisis Partners", number: "+1(844)493-8255", state: "Colorado"};
+			var n16 = {name: "Heartline", number: "+1(833)855-CARE", state: "Oklahoma"};
+			var n17 = {name: "Comcare of Sedgwick County", number: "+1(316)660-7500", state: "Kansas"};
+			var n18 = {name: "Kansas Suicide Prevention HQ", number: "+1(785)841-2345", state: "Kansas"};
+			var n19 = {name: "Boys Town Family Services", number: "+1(531)555-3500", state: "Nebraska"};
+			var n20 = {name: "Comcare of Sedgwick County", number: "+1(316)660-7500", state: "Kansas"};
+			var n21 = {name: "Family & Children’s Services", number: "+1(918)744-4800", state: "Oklahoma"};
+			var n22 = {name: "CommUnity", number: "+1(855)325-4296", state: "Iowa"};
+			var n23 = {name: "Foundation 2 Crisis Center", number: "+1(800)332-4224", state: "Iowa"};
+			var n24 = {name: "DeafLEAD", number: "+1(321)800-DEAF", state: "Missouri"};
+			var n25 = {name: "ICARE Call Center of Tarrant County", number: "+1(817)335-3022", state: "Texas"};
+			var n26 = {name: "Louisiana Association on Compulsive Gambling", number: "+1(877)770-STOP", state: "Louisiana"};
+			var n27 = {name: "Suicide and Crisis Center", number: "+1(214)828-1000", state: "Texas"};
+			var n28 = {name: "Contact the Crisis line", number: "+1(601)713-4099", state: "Mississippi"};
+			var n29 = {name: "Birmingham Crisis Center", number: "+1(205)323-7777", state: "Alabama"};
+			var n30 = {name: "Crisis Center of North Alabama", number: "+1(256)716-4052", state: "Alabama"};
+			var n31 = {name: "Big Bend 211", number: "+1(850)617-6333", state: "Florida"};
+			var n32 = {name: "Personal Enrichment through Mental Health Services", number: "+1(727)791-3131", state: "Florida"};
+			var n33 = {name: "Alachua County", number: "+1(352)264-3131", state: "Florida"};
+			var n34 = {name: "Behavioral Health Link", number: "+1(800)715-4225", state: "Georgia"};
+			var n35 = {name: "Volunteer Crisis Services", number: "+1(800)704-6051", state: "Tennessee"};
+			var n36 = {name: "The Crisis Center of Family & Children’s Service", number: "+1(866)475-7879", state: "Tennessee"};
+			var n37 = {name: "Crisis & Information Line", number: "+1(800)433-7291", state: "Kentucky"};
+			var n38 = {name: "The Adanta Group", number: "+1(800)633-5599", state: "Kentucky"};
+			var n39 = {name: "Seven Counties Services Child Crisis Line", number: "+1(502)589-8070", state: "Kentucky"};
+			var n40 = {name: "Memorial Behavioral Health", number: "+1(217)588-5509", state: "Illinois"};
+			var n41 = {name: "Path Crisis", number: "+1(888)865-9903", state: "Illinois"};
+			var n42 = {name: "Journey Mental Health Center", number: "+1(608)280-2600", state: "Wisconsin"};
+			var n43 = {name: "North Central Health Care", number: "+1(715)845-4326", state: "Wisconsin"};
+			var n44 = {name: "Dial Help", number: "+1(800)562-7622", state: "Minnesota"};
+			var n45 = {name: "Crisis & Suicide Intervention Service", number: "+1(371)251-7575", state: "Indiana"};
+			var n46 = {name: "A Better Way Services", number: "+1(765)288-HELP", state: "Indiana"};
+			var n47 = {name: "Listening Ear Isabella County", number: "+1(989)772-2918", state: "Michigan"};
+			var n48 = {name: "Listening Ear Clare County", number: "+1(989)386-2774", state: "Michigan"};
+			var n49 = {name: "North Central Mental Health (Teens)", number: "+1(614)294-3300", state: "Ohio"};
+			var n50 = {name: "North Central Mental Health", number: "+1(614)221-5445", state: "Ohio"};
+			var n51 = {name: "Help 4 West Virginia", number: "+1(844)HEL-P4WV", state: "West Virginia"};
+			var n52 = {name: "Southside Survivor Responsive Center", number: "+1(877)934-3576", state: "Virginia"};
+			var n53 = {name: "CRISISline - Mental Health America of Greenville County", number: "+1(864)271-8888", state: "South Carolina"};
+			var n54 = {name: "Real Crisis Intervention", number: "+1(252)758-4357", state: "North Carolina"};
+			var n55 = {name: "CRISISline - Mental Health America of Greenville County", number: "+1(877)934-3576", state: "South Carolina"};
+			var n56 = {name: "Helpline ACTS (Domestic Violence)", number: "+1(703)221-4460", state: "Virginia"};
+			var n57 = {name: "Helpline ACTS (Sexual Assault)", number: "+1(703)497-1192", state: "Virginia"};
+			var n58 = {name: "Centre Helps", number: "+1(800)494-2500", state: "Pennsylvania"};
+			var n59 = {name: "Suicide Prevention & Crisis Service", number: "+1(607)272-1616", state: "New York"};
+			var n60 = {name: "AMHC HELPLine", number: "+1(207)498-6431", state: "Maine"};
+			var n61 = {name: "Vermont 211", number: "+1(802)652-4636", state: "Vermont"};
+			var n62 = {name: "Vermont 211", number: "+1(866)652-4636", state: "Vermont"};
+			var n63 = {name: "Call2Talk", number: "+1(508)532-2255", state: "Massachusetts"};
+			var n64 = {name: "Headrest", number: "+1(603)448-4872", state: "New Hampshire"};
+			var n65 = {name: "Life Crisis Center", number: "+1(410)749-4375", state: "Maryland"};
+			var n66 = {name: "United Way of Connecticut", number: "+1(800)203-1234", state: "Connecticut"};
+			var n67 = {name: "ContACT Community Services", number: "+1(315)251-0600", state: "New York"};
+
+			var hotlines = [n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12, n13, n14, n15, n16, n17, n18, n19, n20, n21, 
+			n22, n23, n24, n25, n26, n27, n28, n29, n30, n31, n32, n33, n34, n35, n36, n37, n38, n39, n40, n41, n42, n43, n44, 
+			n45, n46, n47, n48, n49, n50, n51, n52, n53, n54, n55, n56, n57, n58, n59, n60, n61, n62, n63, n64, n65, n66, n67];
+
+			function printHotline(state) {
+				numbersPane.innerHTML = "";
+				let titleDiv = document.createElement('div');
+		    	titleDiv.className = "title";
+		    	numbersPane.append(titleDiv);
+		    	let titleName = document.createElement('h4');
+		    	let titleEm = document.createElement('em');
+		    	titleEm.append("Hotlines");
+		    	titleName.append(titleEm);
+		    	titleDiv.append(titleName);
+				for (var i = 0; i < hotlines.length; i++) {
+					if (hotlines[i].state == state) {
+						let numberDiv = document.createElement('div');
+		    			numberDiv.className = "number"
+		    			numbersPane.append(numberDiv);
+			        	let phoneNumber = document.createElement('h5');
+			        	phoneNumber.append(hotlines[i].number);
+			        	numberDiv.append(phoneNumber);
+			        	let placeName = document.createElement('p');
+			    		placeName.append(hotlines[i].name);
+			    		numberDiv.append(placeName);				
+					}
+				}
+				printGlobal();
+			}
+
+			function printGlobal() {
+				let numberDiv = document.createElement('div');
+    			numberDiv.className = "number"
+    			numbersPane.append(numberDiv);
+	        	let phoneNumber = document.createElement('h5');
+	        	phoneNumber.append("+1(800)662-4357");
+	        	numberDiv.append(phoneNumber);
+	        	let placeName = document.createElement('p');
+	    		placeName.append("SAMHSA National Helpline");
+	    		numberDiv.append(placeName);
+
+	    		let numberDiv1 = document.createElement('div');
+    			numberDiv1.className = "number"
+    			numbersPane.append(numberDiv1);
+	        	let phoneNumber1 = document.createElement('h5');
+	        	phoneNumber1.append("+1(800)273-8255");
+	        	numberDiv1.append(phoneNumber1);
+	        	let placeName1 = document.createElement('p');
+	    		placeName1.append("National Suicide Prevention Hotline");
+	    		numberDiv1.append(placeName1);
+
+	    		let numberDiv2 = document.createElement('div');
+    			numberDiv2.className = "number"
+    			numbersPane.append(numberDiv2);
+	        	let phoneNumber2 = document.createElement('h5');
+	        	phoneNumber2.append("+1(877)968-8491");
+	        	numberDiv2.append(phoneNumber2);
+	        	let placeName2 = document.createElement('p');
+	    		placeName2.append("Boys Town National Hotline");
+	    		numberDiv2.append(placeName2);
+
+	    		let numberDiv3 = document.createElement('div');
+    			numberDiv3.className = "number"
+    			numbersPane.append(numberDiv3);
+	        	let phoneNumber3 = document.createElement('h5');
+	        	phoneNumber3.append("+1(800)985-5990");
+	        	numberDiv3.append(phoneNumber3);
+	        	let placeName3 = document.createElement('p');
+	    		placeName3.append("Disaster Distress Helpline");
+	    		numberDiv3.append(placeName3);
+
+	    		let numberDiv4 = document.createElement('div');
+    			numberDiv4.className = "number"
+    			numbersPane.append(numberDiv4);
+	        	let phoneNumber4 = document.createElement('h5');
+	        	phoneNumber4.append("+1(877)968-8491");
+	        	numberDiv4.append(phoneNumber4);
+	        	let placeName4 = document.createElement('p');
+	    		placeName4.append("YouthLine");
+	    		numberDiv4.append(placeName4);
+
+	    		let numberDiv5 = document.createElement('div');
+    			numberDiv5.className = "number"
+    			numbersPane.append(numberDiv5);
+	        	let phoneNumber5 = document.createElement('h5');
+	        	phoneNumber5.append("+1(800)950-6264");
+	        	numberDiv5.append(phoneNumber5);
+	        	let placeName5 = document.createElement('p');
+	    		placeName5.append("National Alliance on Mental Illness (NAMI)");
+	    		numberDiv5.append(placeName5);	
+			}
+
+
+			function printMarkers(places) {
+				let titleDiv = document.createElement('div');
+		    	titleDiv.className = "title";
+		    	numbersPane.append(titleDiv);
+		    	let titleName = document.createElement('h4');
+		    	let titleEm = document.createElement('em');
+		    	titleEm.append("Clinics");
+		    	titleName.append(titleEm);
+		    	titleDiv.append(titleName);
+			    places.forEach(place => {
+			    	console.log(place);
+			    	var request = { reference: place.reference };
+			    	service.getDetails(request, function(details, status) {
+			        	console.log(details.formatted_phone_number);
+			        	if(details.formatted_phone_number) {
+			        		let numberDiv = document.createElement('div');
+			    			numberDiv.className = "number"
+			    			numbersPane.append(numberDiv);
+				        	let phoneNumber = document.createElement('h5');
+				        	phoneNumber.append(details.formatted_phone_number);
+				        	numberDiv.append(phoneNumber);
+				        	let placeName = document.createElement('p');
+				    		placeName.append(place.name);
+				    		numberDiv.append(placeName);
+			    		}
+			    	});
+				});
+				document.getElementById("phoneNumbers").style.visibility = "visible"
+			}
+
+			function showPanel(placeResult) {
+
+			    if (infoPane.classList.contains("open")) {
+			    infoPane.classList.remove("open");
+			    }
+
+			    while (infoPane.lastChild) {
+			    infoPane.removeChild(infoPane.lastChild);
+			    }
+
+				if (placeResult.photos != null) {
+				    let firstPhoto = placeResult.photos[0];
+				    let photo = document.createElement('img');
+				    photo.classList.add('hero');
+				    photo.src = firstPhoto.getUrl();
+				    console.log(photo)
+				    infoPane.appendChild(photo);
+				}
+				else
+				{
+					let photo = document.createElement('img');
+					photo.classList.add('hero')
+					photo.src = 'logo.png'
+					infoPane.appendChild(photo);
+				}
+
+			    let name = document.createElement('h1');
+			    name.classList.add('place');
+			    name.textContent = placeResult.name;
+			    infoPane.appendChild(name);
+			    if (placeResult.rating != null) {
+			    let rating = document.createElement('p');
+			    rating.classList.add('details');
+			    rating.textContent = `Rating: ${placeResult.rating} \u272e`;
+			    infoPane.appendChild(rating);
+			    }
+			    let address = document.createElement('p');
+			    address.classList.add('details');
+			    address.textContent = placeResult.formatted_address;
+			    infoPane.appendChild(address);
+			    if (placeResult.formatted_phone_number) {
+			    let phonePara = document.createElement('p');
+			    let phoneNumber = document.createTextNode(placeResult.formatted_phone_number);
+			    phonePara.appendChild(phoneNumber);
+			    infoPane.appendChild(phonePara);
+			    }
+			    if (placeResult.website) {
+			    let websitePara = document.createElement('p');
+			    let websiteLink = document.createElement('a');
+			    let websiteUrl = document.createTextNode(placeResult.website);
+			    websiteLink.appendChild(websiteUrl);
+			    websiteLink.title = placeResult.website;
+			    websiteLink.href = placeResult.website;
+			    websitePara.appendChild(websiteLink);
+			    infoPane.appendChild(websitePara);
+			    }
+
+			    infoPane.classList.add("open");
+			}
+	</script>
+	
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="background-color: white; display: block; margin-top: -5%;">
 		<path fill="#141618" fill-opacity="1" d="M0,288L40,272C80,256,160,224,240,186.7C320,149,400,107,480,122.7C560,139,640,213,720,240C800,267,880,245,960,245.3C1040,245,1120,267,1200,272C1280,277,1360,267,1400,261.3L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
 	</svg>

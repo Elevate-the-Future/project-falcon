@@ -37,23 +37,23 @@
 }
 
 
-.local-resource-tool #phoneNumbers::-webkit-scrollbar, #panel::-webkit-scrollbar {
+.local-resource-tool #phoneNumbers::-webkit-scrollbar, .local-resource-tool #panel::-webkit-scrollbar {
   width: 7px;
 }
 
 /* Track */
-.local-resource-tool #phoneNumbers::-webkit-scrollbar-track, #panel::-webkit-scrollbar-track {
+.local-resource-tool #phoneNumbers::-webkit-scrollbar-track, .local-resource-tool #panel::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
 /* Handle */
-.local-resource-tool #phoneNumbers::-webkit-scrollbar-thumb, #panel::-webkit-scrollbar-thumb {
+.local-resource-tool #phoneNumbers::-webkit-scrollbar-thumb, .local-resource-tool #panel::-webkit-scrollbar-thumb {
   background: black;
   border-radius: 5px;
 }
 
 /* Handle on hover */
-.local-resource-tool #phoneNumbers::-webkit-scrollbar-thumb:hover, #panel::-webkit-scrollbar-thumb:hover {
+.local-resource-tool #phoneNumbers::-webkit-scrollbar-thumb:hover, .local-resource-tool #panel::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
@@ -94,7 +94,7 @@
 }
 
 .local-resource-tool .place,
-p {
+.local-resource-tool p {
     font-family: manropebold;
     padding-left: 18px;
     padding-right: 18px;
@@ -128,7 +128,7 @@ p {
 	justify-content: flex-end;
 }
 
-.local-resource-tool .panel, .map, .numbers, .list {
+.local-resource-tool .panel, .local-resource-tool .map, .local-resource-tool .numbers, .local-resource-tool .list {
 	border-radius: 10px;
 	border: 1px solid #d8d8d8;
 	width: 95%;
@@ -144,12 +144,12 @@ p {
 	padding: 0px;
 }
 
-.local-resource-tool .map h3, .panel h3, .list h3, .numbers h3 {
+.local-resource-tool .map h3, .local-resource-tool .panel h3, .local-resource-tool .list h3, .local-resource-tool .numbers h3 {
 	font-family: manropebold;
 	margin-top: 5px;
 }
 
-.local-resource-tool .map h6, .panel h6, .list h6, .numbers h6 {
+.local-resource-tool .map h6, .local-resource-tool .panel h6, .local-resource-tool .list h6, .local-resource-tool .numbers h6 {
 	font-family: manropelight;
 }
 
@@ -228,7 +228,7 @@ p {
 }
 
 @media only screen and (max-width: 1200px) {
-	.local-resource-tool .panel, .map, .numbers, .list {
+	.local-resource-tool .panel, .local-resource-tool .map, .local-resource-tool .numbers, .local-resource-tool .list {
 	border-radius: 10px;
 	border: 1px solid #d8d8d8;
 	width: 98%;

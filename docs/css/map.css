@@ -37,29 +37,29 @@
 }
 
 
-#phoneNumbers::-webkit-scrollbar, #panel::-webkit-scrollbar {
+.local-resource-tool #phoneNumbers::-webkit-scrollbar, #panel::-webkit-scrollbar {
   width: 7px;
 }
 
 /* Track */
-#phoneNumbers::-webkit-scrollbar-track, #panel::-webkit-scrollbar-track {
+.local-resource-tool #phoneNumbers::-webkit-scrollbar-track, #panel::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
 /* Handle */
-#phoneNumbers::-webkit-scrollbar-thumb, #panel::-webkit-scrollbar-thumb {
+.local-resource-tool #phoneNumbers::-webkit-scrollbar-thumb, #panel::-webkit-scrollbar-thumb {
   background: black;
   border-radius: 5px;
 }
 
 /* Handle on hover */
-#phoneNumbers::-webkit-scrollbar-thumb:hover, #panel::-webkit-scrollbar-thumb:hover {
+.local-resource-tool #phoneNumbers::-webkit-scrollbar-thumb:hover, #panel::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
 /* Always set the map height explicitly to define the size of the div
      * element that contains the map. */
-#map {
+.local-resource-tool #map {
   height: 60vh;
   width: 100%;
   border-radius: 10px;
@@ -70,7 +70,7 @@
 }
 
 /* TODO: Step 4A1: Make a generic sidebar */
-#panel {
+.local-resource-tool #panel {
 	width: 100%;
 	height: 62vh;
  	 margin-top: 1vh;
@@ -81,54 +81,54 @@
 	display: none;
 }
 
-.open {
+.local-resource-tool .open {
     width: 250px;
 }
 
 /* Styling for place details */
-.hero {
+.local-resource-tool .hero {
     width: 100%;
     object-fit: cover;
     max-height: 166px;
     display: block;
 }
 
-.place,
+.local-resource-tool .place,
 p {
     font-family: manropebold;
     padding-left: 18px;
     padding-right: 18px;
 }
 
-.details {
+.local-resource-tool .details {
     color: darkslategrey;
     font-family: manrope;
 }
 
-a {
+.local-resource-tool a {
     text-decoration: none;
     color: cadetblue;
 }
 
-.map-info {
+.local-resource-tool .map-info {
 	width: 90%;
 	margin-left: 5%;
 	margin-top: 2%;
 	margin-bottom: 3%;
 }
 
-.search {
+.local-resource-tool .search {
 	width: 89%;
 	margin-left: 5%;
 	margin-top: 3%;
 }
 
-.searchauto {
+.local-resource-tool .searchauto {
 	display: flex;
 	justify-content: flex-end;
 }
 
-.panel, .map, .numbers, .list {
+.local-resource-tool .panel, .map, .numbers, .list {
 	border-radius: 10px;
 	border: 1px solid #d8d8d8;
 	width: 95%;
@@ -136,24 +136,24 @@ a {
 	background-color: white;
 }
 
-.map {
+.local-resource-tool .map {
 	margin-left: 1%;
 }
 
-.panel {
+.local-resource-tool .panel {
 	padding: 0px;
 }
 
-.map h3, .panel h3, .list h3, .numbers h3 {
+.local-resource-tool .map h3, .panel h3, .list h3, .numbers h3 {
 	font-family: manropebold;
 	margin-top: 5px;
 }
 
-.map h6, .panel h6, .list h6, .numbers h6 {
+.local-resource-tool .map h6, .panel h6, .list h6, .numbers h6 {
 	font-family: manropelight;
 }
 
-.temp-img {
+.local-resource-tool .temp-img {
 	width: 100%;
 	border-radius: 10px;
 	height: 60vh;
@@ -161,7 +161,7 @@ a {
 	object-fit: cover;
 }
 
-.numbers .title {
+.local-resource-tool .numbers .title {
 	padding-top: 1.5vh;
 	padding-bottom: 1.5vh;
 	border-bottom: 1px solid black;
@@ -171,56 +171,56 @@ a {
 	background-color: white;
 }
 
-.numbers .title h4 {
+.local-resource-tool .numbers .title h4 {
 	font-family: manropebold;
 }
 
-.numbers .number {
+.local-resource-tool .numbers .number {
 	padding-top: 1.5vh;
 	margin-top: 1.5vh;
 	border-bottom: 1px solid black;
 }
 
-.numbers .number h5 {
+.local-resource-tool .numbers .number h5 {
 	font-family: manropesemibold;
 }
 
-.numbers .number p {
+.local-resource-tool .numbers .number p {
 	padding: 0px;
 	font-family: manropethin;
 }
 
-#phoneNumbers {
+.local-resource-tool #phoneNumbers {
 	height: 60vh;
 	overflow-y: auto;
 	visibility: hidden;
 }
 
-.info-text {
+.local-resource-tool .info-text {
 	padding-left: 2vh;
 	padding-right: 2vh;
 }
 
-.searchbar {
+.local-resource-tool .searchbar {
 	display: inline;
 }
 
-.header-text {
+.local-resource-tool .header-text {
 	width: 89%;
 	margin-left: 6%;
 	margin-top: 3%;
 }
 
-.header-text h1 {
+.local-resource-tool .header-text h1 {
 	font-family: manropebold;
 }
 
-.header-text h6 {
+.local-resource-tool .header-text h6 {
 	font-family: manropethin;
 	margin-top: 2vh;
 }
 
-.designed {
+.local-resource-tool .designed {
 	width: 90%;
 	margin-left: 5%;
 	font-size: 10px;
@@ -228,32 +228,32 @@ a {
 }
 
 @media only screen and (max-width: 1200px) {
-	.panel, .map, .numbers, .list {
+	.local-resource-tool .panel, .map, .numbers, .list {
 	border-radius: 10px;
 	border: 1px solid #d8d8d8;
 	width: 98%;
 	margin-left: 0%;
 	margin-top: 2%;
 	}
-	.searchbarbar {
+	.local-resource-tool .searchbarbar {
 		width: 100%;
 	}
 }
 
 @media only screen and (min-width: 900px) and (max-width: 1200px) {
-	.panel {
+	.local-resource-tool .panel {
 		margin-left: 7.33%;
 	}
 }
 
 @media only screen and (max-width: 920px) {
-	.searchbar {
+	.local-resource-tool .searchbar {
 		display: flex; 
 		justify-content: center;
 		width: 100%;
 		padding: 0px;
 	}
-	.searchauto {
+	.local-resource-tool .searchauto {
 		display: flex; 
 		justify-content: flex-start;
 		width: 100%;
@@ -261,19 +261,19 @@ a {
 	}
 }
 
-.btn-primary {
+.local-resource-tool .btn-primary {
 	background-color: blue;
 	color: white;
 	border: none;
 }
 
-.btn-primary:active {
+.local-resource-tool .btn-primary:active {
 	background-color: black;
 	color: white;
 	border: none;
 }
 
-.btn-primary:hover {
+.local-resource-tool .btn-primary:hover {
 	background-color: black;
 	color: white;
 	border: none;

@@ -58,7 +58,7 @@ div#hero-text {
     align-items: center;
 }
 
-div#hero-text h2, h3 {
+div#hero-text h2, div#hero-text h3 {
     background: linear-gradient(to right, #db3b4b, #3f80e2);
     -webkit-background-clip: text;
     -webkit-text-stroke: 2px #141618 !important;

@@ -8,10 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/map.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1" user-scalable="no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" user-scalable="no">
 </head>
 <body>
-	<div class="row topbar cms-editable cms-include" id="navbar">
+	<div class="row topbar cms-editable cms-include" id="navbar" style="position: absolute; width: 100%;">
 		<div class="col-4">
 			<a href="businesses.html"><button type="button" class="btn btn-light">&#x2190; For Businesses</button></a>
 		</div>
@@ -45,29 +45,9 @@
 	</div> -->
 
 	<!-- Partners -->
-	<!-- <section id="partner" style="background-color: #fff;">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="background-color: #141618">
-			<path fill="#fff" fill-opacity="1" d="M0,288L1440,224L1440,320L0,320Z"></path>
-		</svg>
-		<div class="partners-container">
-			<div class="marquee">
-				<ul class="marquee-content"> -->
-					<!-- Try to have significant one near the middle -->
-					<!-- <li><a href="https://cupertino-chamber.org/" target="_blank"><img class="large-partner" src="images/partners/cupertino-commerce.png"></a></li>
-					<li><a href="https://www.svcentralchamber.com/" target="_blank"><img class="xlarge-partner" src="images/partners/svcentral-commerce.png"></a></li>
-					<li><a href="https://www.microsoft.com/en-us/" target="_blank"><img class="medium-partner" src="images/partners/microsoft.png"></a></li>
-					<li><a href="https://grow.google/" target="_blank"><img class="medium-partner" src="images/partners/grow-google.png"></a></li>
-					<li><a href="https://www.t-mobile.com/" target="_blank"><img class="medium-partner" src="images/partners/tmobile.png"></a></li>
-					<li><a href="https://www.cupertino.org/" target="_blank"><img class="medium-partner" src="images/partners/city-cupertino.png"></a></li>
-					<li><a href="https://www.kiva.org/" target="_blank"><img class="medium-partner" src="images/partners/kiva.png"></a></li>
-					<li><a href="https://novarisconsulting.com/" target="_blank"><img class="medium-partner" src="images/partners/novaris.png"></a></li>
-				</ul>
-			</div>
-		</div>
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="background-color:#141618;">
-			<path fill="#fff" fill-opacity="1" d="M0,96L1440,32L1440,0L0,0Z"></path>
-		</svg>
-	</section> -->
+	<div class="hero">
+		<h1 class="text-center">Project Falcon</h1>
+	</div>
 	<!-- End of Partners -->
 
 	<div class="row row-info">
@@ -95,7 +75,7 @@
 				</div>
 			</div>
 			<div class="col-lg-6 col-12">
-				<img src="images/websites/startupalooza.png">
+				<img src="website.svg">
 			</div>
 		</div>
 
@@ -136,162 +116,176 @@
 	</div>
 	<p style="background-color: white; text-align: center; margin-bottom: 0px; font-size: 20px; padding-bottom: 5vh;"><a href="our-work.html" style="color: black;">View All Of Our Sites Here &#x2192;</a></p>
 
+	<h1 class="header-map">Project Falcon On the Map</h1>
+
 	<div class="local-resource-tool">
-		<div class="row search">
-			<div class="col-lg-6 d-lg-flex d-flex col-12 searchbar">
-				<div class="searchbarbar">
-					<label for="inputPassword2" class="sr-only">Zip Code</label>
-					<input style="width: 50%; display: inline;" type="text" class="form-control" id="zip" placeholder="Zip Code">
-					<button style="display: inline; margin-top: 4px;" class="btn btn-primary mb-2" onclick="initMapZip()">Enter</button>
-				</div>
-			</div>
-			<div class="col-lg-6 col-12 searchauto d-none d-lg-flex">
-				<button id="button" class="btn btn-primary mb-2">Auto-Enable Location</button>
-			</div>
-		</div>
 		<div class="row map-info">
-			<div class="col-xl-5 col-lg-6 col-12 map">
-				<h3>Find</h3>
-				<h6>Mental health resources in your area.</h6>
+			<div class="col-xl-12 col-lg-12 col-12 map" style="border: none;">
 				<img id="temp-img" class="temp-img" src="examplemap.png">
 				<div id="map"></div>
 			</div>
-			<div class="col-xl-3 col-lg-5 d-lg-block d-none col-12 panel">
-				<div class="info-text">
-					<h3>Info</h3>
-					<h6>About specific locations on the map.</h6><br id="temp-br">
-					<h6 id="temp-text"></h6>
-				</div>
-				<div id="panel"></div>
+		</div>
+	</div>
+	
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="background-color: white; display: block; margin-top: -5%;">
+		<path fill="#141618" fill-opacity="1" d="M0,288L40,272C80,256,160,224,240,186.7C320,149,400,107,480,122.7C560,139,640,213,720,240C800,267,880,245,960,245.3C1040,245,1120,267,1200,272C1280,277,1360,267,1400,261.3L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
+	</svg>
+
+
+	<div>
+	<div class="center-element" style="padding-top: 10vh; color: white;">
+		<div class="row contact" style="width: 85%;">
+			<div class="col-xl-6 col-12">
+				<h1>Get In Touch</h1>
+				<h6>Phone:</h6>
+				<h3>+1 (914) 723 4464</h3>
+				<h6>Email:</h6>
+				<h3>teamfalcon@elevatethefuture.org</h3>
 			</div>
-			<div class="col-xl-3 col-12 numbers">
-				<h3>Numbers</h3>
-				<h6 style="margin-bottom: 1.5vh;">For hotlines & clinics near you.</h6>
-				<div id="phoneNumbers">
+			<div class="col-xl-6 col-12">
+				<h1 style="visibility: hidden;">G</h1>
+				<form>
+				  <div class="form-group">
+				    <h3 for="exampleInputEmail1" style="font-weight: 600;">Sign Up For Project Falcon:</h3><br>
+				    <div class="form-inline d-lg-flex d-none" style="display: flex; justify-content: space-between;">
+				    	<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com" style="width: 75%;">
+				    	<button type="submit" class="btn btn-light newsletter" style="width: 20%;">Submit</button>
+				    </div>
+				    <div class="form-inline d-lg-none d-flex" style="display: flex; justify-content: space-between;">
+				    	<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com" style="width: 100%;">
+				    	<button type="submit" class="btn btn-light newsletter" style="width: 100%; margin-top: 2vh;">Submit</button>
+				    </div>
+				  </div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="center-element" style="padding-top: 10vh; color: white;">
+		<div class="row contacttwo d-xl-flex d-none" style="width: 85%;">
+			<div class="col-4 col-4">
+				<div>
+					<h6>Pages</h6>
+					<p>About Us</p>
+					<p>Events</p>
+					<p>Our Investors</p>
+					<p>Blog</p>
+					<p>Contact Us</p>
+				</div>
+			</div>
+			<div class="col-4 col-4">
+				<div>
+					<h6>Events</h6>
+					<p>Boston: Pitch</p>
+					<p>New York: Workshop</p>
+					<p>DC: Pitch</p>
+				</div>
+			</div>
+			<div class="col-4 col-4">
+				<div>
+					<h6>Social</h6>
+					<p>Facebook</p>
+					<p>Twitter</p>
+					<p>Google+</p>
+					<p>Meetup</p>
+					<p>Eventbrite</p>
 				</div>
 			</div>
 		</div>
-		<p class="designed">Designed by <a href="">Pattur Web Design</a></p>
 	</div>
 
-  	<script>
+	<div class="center-element" style="padding-top: 0vh; color: white;">
+		<div class="row contacttwo d-xl-none d-flex" style="width: 85%;">
+			<div class="col-4 col-12" style="height: 1vh;">
+				<p style="visibility: hidden;">start</p>
+			</div>
+			<div class="col-4 col-4" style="display: flex; justify-content: flex-start;">
+				<div>
+					<h6>Pages</h6>
+					<p>About Us</p>
+					<p>Events</p>
+					<p>Our Investors</p>
+					<p>Blog</p>
+					<p>Contact Us</p>
+				</div>
+			</div>
+			<div class="col-4 col-4" style="display: flex; justify-content: flex-start;">
+				<div>
+					<h6>Events</h6>
+					<p>Boston: Pitch</p>
+					<p>New York: Workshop</p>
+					<p>DC: Pitch</p>
+				</div>
+			</div>
+			<div class="col-xl-3 col-4" style="display: flex; justify-content: flex-start;">
+				<div>
+					<h6>Social</h6>
+					<p>Facebook</p>
+					<p>Twitter</p>
+					<p>Google+</p>
+					<p>Meetup</p>
+					<p>Eventbrite</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<p style="color: white; text-align: center; padding-top: 2%; padding-bottom: 2%; margin: 0; font-size: 12px;">Project Falcon 2020 | <a href="#" style="color: gray;">Elevate the Future</a></p>
+</div>
+
+	
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<!-- Add scripts -->
+	<script src="js/hidden-nav.js"></script>
+	<script src="js/index.js"></script>
+	<script>
 		let pos;
 		let map;
 		let bounds;
 		let infoWindow;
 		let currentInfoWindow;
 		let service;
-		let infoPane;
-		let numbersPane;
-		document.getElementById('button').onclick = function initMap() {
+		function initMap() {
 		    bounds = new google.maps.LatLngBounds();
 		    infoWindow = new google.maps.InfoWindow;
 		    currentInfoWindow = infoWindow;
-			infoPane = document.getElementById('panel');
-			numbersPane = document.getElementById('phoneNumbers')
-		    if (navigator.geolocation) {
-		    navigator.geolocation.getCurrentPosition(position => {
-		        pos = {
-		        lat: position.coords.latitude,
-		        lng: position.coords.longitude
-		        };
-		        map = new google.maps.Map(document.getElementById('map'), {
-		        center: pos,
-		        zoom: 15
-		        });
-		        bounds.extend(pos);
-
-		        infoWindow.setPosition(pos);
-		        infoWindow.setContent('Location found.');
-		        infoWindow.open(map);
-		        map.setCenter(pos);
-
-				getNearbyPlaces(pos);
-		    }, () => {
-		        handleLocationError(true, infoWindow);
-		    });
-		    } else {
 		    handleLocationError(false, infoWindow);
-		    }
 		    document.getElementById("map").style.display = "block";
 			document.getElementById("temp-img").style.display = "none";
-		}
+			var places = [
+	          {
+	            position: new google.maps.LatLng(-33.91721, 151.22630),
+	            type: 'info'
+	          }, {
+	            position: new google.maps.LatLng(-33.91539, 151.22820),
+	            type: 'info'
+	          }, {
+	            position: new google.maps.LatLng(-33.91747, 151.22912),
+	            type: 'info'
+	          }
+	        ];
 
-		let geocoder;
-		let address;
-		function initMapZip() {
-		    bounds = new google.maps.LatLngBounds();
-		    infoWindow = new google.maps.InfoWindow;
-		    currentInfoWindow = infoWindow;
-			infoPane = document.getElementById('panel');
-			numbersPane = document.getElementById('phoneNumbers')
-
-			geocoder = new google.maps.Geocoder();
-			address = document.getElementById('zip').value;
-			let pos;
-			geocoder.geocode( { 'address': address}, function(results, status) {
-		      if (status == google.maps.GeocoderStatus.OK) {
-		        console.log(results);
-		        console.log(results[0].geometry.location);
-		        pos = results[0].geometry.location;
-		        map = new google.maps.Map(document.getElementById('map'), {
-		        center: pos,
-		        zoom: 15
-		        });
-		        bounds.extend(pos);
-
-		        infoWindow.setPosition(pos);
-		        infoWindow.setContent('Location found.');
-		        infoWindow.open(map);
-		        map.setCenter(pos);
-
-				getNearbyPlaces(pos);
-				document.getElementById("map").style.display = "block";
-			document.getElementById("temp-img").style.display = "none";
-		      } else {
-		        alert("Geocode was not successful for the following reason: " + status);
-		      }
-		    });
+	        createMarkers(places);
 		}
 
 		function handleLocationError(browserHasGeolocation, infoWindow) {
 		    pos = {lat: 37.3382, lng: -121.8863};
 		    map = new google.maps.Map(document.getElementById('map'), {
 		    center: pos,
-		    zoom: 15
+		    zoom: 8
 		    });
 
-		    infoWindow.setPosition(pos);
-		    infoWindow.setContent(browserHasGeolocation ?
-		    'You have denied the use of geolocation. Please click \'allow\' or enter your ZIP Code instead.' :
-		    'Error: Your browser doesn\'t support geolocation.');
 		    infoWindow.open(map);
 		    currentInfoWindow = infoWindow;		
-		}
-
-		function getNearbyPlaces(position) {
-		    let request = {
-		    location: position,
-		    rankBy: google.maps.places.RankBy.DISTANCE,
-		    keyword: 'mental health'
-		    };
-
-		    service = new google.maps.places.PlacesService(map);
-		    service.nearbySearch(request, nearbyCallback);
-		}
-
-		function nearbyCallback(results, status) {
-		    if (status == google.maps.places.PlacesServiceStatus.OK) {
-		    createMarkers(results);
-		    }
 		}
 
 		function createMarkers(places) {
 		    places.forEach(place => {
 		    let marker = new google.maps.Marker({
-		        position: place.geometry.location,
-		        map: map,
-		        title: place.name
+		        position: place.position,
+		        map: map
 		    });
 			google.maps.event.addListener(marker, 'click', () => {
 				document.getElementById("temp-text").style.display = "none";
@@ -309,37 +303,8 @@
 			    });
 			});
 
-		    bounds.extend(place.geometry.location);
+		    bounds.extend(place.location);
 		    });
-
-		    var mainmarker = new google.maps.Marker({
-		    	position: places[0].geometry.location,
-		        map: map,
-		        title: places[0].name
-		    });
-			mainmarker.addListener('click', () => {
-				document.getElementById("temp-text").style.display = "none";
-				document.getElementById("temp-br").style.display = "none";
-				document.getElementById("panel").style.display = "block";
-			    let request = {
-			    placeId: places[0].place_id,
-			    fields: ['name', 'formatted_address', 'geometry', 'rating',
-			        'website', 'photos', 'formatted_phone_number', 'address_components']
-			    };
-
-
-			    service.getDetails(request, (placeResult, status) => {
-			    if(placeResult.address_components.length == 6) {
-			    	printHotline(placeResult.address_components[3].long_name);
-			    }
-			    else {
-			    	printHotline(placeResult.address_components[5].long_name);
-			    }
-			    printMarkers(places);
-			    showDetails(placeResult, mainmarker, status);
-			    });
-			});
-			new google.maps.event.trigger( mainmarker, 'click' );
 
 		    map.fitBounds(bounds);
 		}
@@ -612,119 +577,8 @@
 			    infoPane.classList.add("open");
 			}
 	</script>
-	
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="background-color: white; display: block; margin-top: -5%;">
-		<path fill="#141618" fill-opacity="1" d="M0,288L40,272C80,256,160,224,240,186.7C320,149,400,107,480,122.7C560,139,640,213,720,240C800,267,880,245,960,245.3C1040,245,1120,267,1200,272C1280,277,1360,267,1400,261.3L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
-	</svg>
-
-
-	<div>
-	<div class="center-element" style="padding-top: 10vh; color: white;">
-		<div class="row contact" style="width: 85%;">
-			<div class="col-xl-6 col-12">
-				<h1>Get In Touch</h1>
-				<h6>Phone:</h6>
-				<h3>+1 (914) 723 4464</h3>
-				<h6>Email:</h6>
-				<h3>teamfalcon@elevatethefuture.org</h3>
-			</div>
-			<div class="col-xl-6 col-12">
-				<h1 style="visibility: hidden;">G</h1>
-				<form>
-				  <div class="form-group">
-				    <h3 for="exampleInputEmail1" style="font-weight: 600;">Sign Up For Project Falcon:</h3><br>
-				    <div class="form-inline d-lg-flex d-none" style="display: flex; justify-content: space-between;">
-				    	<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com" style="width: 75%;">
-				    	<button type="submit" class="btn btn-light newsletter" style="width: 20%;">Submit</button>
-				    </div>
-				    <div class="form-inline d-lg-none d-flex" style="display: flex; justify-content: space-between;">
-				    	<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com" style="width: 100%;">
-				    	<button type="submit" class="btn btn-light newsletter" style="width: 100%; margin-top: 2vh;">Submit</button>
-				    </div>
-				  </div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-	<div class="center-element" style="padding-top: 10vh;">
-		<div class="row contacttwo d-xl-flex d-none" style="width: 85%;">
-			<div class="col-4 col-4">
-				<div>
-					<h6>Pages</h6>
-					<p>About Us</p>
-					<p>Events</p>
-					<p>Our Investors</p>
-					<p>Blog</p>
-					<p>Contact Us</p>
-				</div>
-			</div>
-			<div class="col-4 col-4">
-				<div>
-					<h6>Events</h6>
-					<p>Boston: Pitch</p>
-					<p>New York: Workshop</p>
-					<p>DC: Pitch</p>
-				</div>
-			</div>
-			<div class="col-4 col-4">
-				<div>
-					<h6>Social</h6>
-					<p>Facebook</p>
-					<p>Twitter</p>
-					<p>Google+</p>
-					<p>Meetup</p>
-					<p>Eventbrite</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="center-element" style="padding-top: 0vh;">
-		<div class="row contacttwo d-xl-none d-flex" style="width: 85%;">
-			<div class="col-4 col-12" style="height: 1vh;">
-				<p style="visibility: hidden;">start</p>
-			</div>
-			<div class="col-4 col-4" style="display: flex; justify-content: flex-start;">
-				<div>
-					<h6>Pages</h6>
-					<p>About Us</p>
-					<p>Events</p>
-					<p>Our Investors</p>
-					<p>Blog</p>
-					<p>Contact Us</p>
-				</div>
-			</div>
-			<div class="col-4 col-4" style="display: flex; justify-content: flex-start;">
-				<div>
-					<h6>Events</h6>
-					<p>Boston: Pitch</p>
-					<p>New York: Workshop</p>
-					<p>DC: Pitch</p>
-				</div>
-			</div>
-			<div class="col-xl-3 col-4" style="display: flex; justify-content: flex-start;">
-				<div>
-					<h6>Social</h6>
-					<p>Facebook</p>
-					<p>Twitter</p>
-					<p>Google+</p>
-					<p>Meetup</p>
-					<p>Eventbrite</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<p style="color: white; text-align: center; padding-top: 2%; padding-bottom: 2%; margin: 0; font-size: 12px;">Project Falcon 2020 | <a href="#" style="color: gray;">Elevate the Future</a></p>
-</div>
-
-	
-	<!-- Scripts -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-	<!-- Add scripts -->
-	<script src="js/hidden-nav.js"></script>
-	<script src="js/index.js"></script>
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?&fields=name,rating,formatted_phone_number&key=AIzaSyAWKyYyQgGstPoADmE2DxKmzoGRtKkllss&libraries=places&callback=initMap">
+	</script>
 </body>
 </html>

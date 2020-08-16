@@ -205,3 +205,28 @@ img.medium-partner:hover {
     .marquee:before, .marquee:after { width: 5rem; }
 }
 /*End of Scroll Partners*/
+
+.hero {
+    background-image: url('falcon.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
+    height: 95vh;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    color: white;
+}
+
+h1.header-map {
+    background-color: white;
+    color: black;
+    padding-top: 2vh;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 0px;
+}

@@ -250,11 +250,10 @@ img.logo {
 }
 
 .row-business img {
-	width: 100%;
-	border-radius: 5px;
+	width: 90%;
+	margin-left: 5%;
 	object-position: center;
 	object-fit: cover;
-	border: 1px solid #d8d8d8;
 }
 
 .row-business .col-12 {

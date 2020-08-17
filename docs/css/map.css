@@ -1,0 +1,280 @@
+@font-face {
+  font-family: manropebold;
+  src: url(manropebold.otf);
+}
+
+@font-face {
+  font-family: manropelight;
+  src: url(manropelight.otf);
+}
+
+@font-face {
+  font-family: manropemedium;
+  src: url(manropemedium.otf);
+}
+
+@font-face {
+  font-family: manrope;
+  src: url(manroperegular.otf);
+}
+
+@font-face {
+  font-family: manropesemibold;
+  src: url(manropesemibold.otf);
+}
+
+@font-face {
+  font-family: manropethin;
+  src: url(manropethin.otf);
+}
+
+.local-resource-tool {
+	font-family: manrope;
+	background-color: white;
+	width: 100%;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+}
+
+
+.local-resource-tool #phoneNumbers::-webkit-scrollbar, .local-resource-tool #panel::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+.local-resource-tool #phoneNumbers::-webkit-scrollbar-track, .local-resource-tool #panel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.local-resource-tool #phoneNumbers::-webkit-scrollbar-thumb, .local-resource-tool #panel::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.local-resource-tool #phoneNumbers::-webkit-scrollbar-thumb:hover, .local-resource-tool #panel::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+.local-resource-tool #map {
+  height: 60vh;
+  width: 100%;
+  border-radius: 10px;
+  height: 60vh;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+  display: none;
+}
+
+/* TODO: Step 4A1: Make a generic sidebar */
+.local-resource-tool #panel {
+	width: 100%;
+	height: 62vh;
+ 	 margin-top: 1vh;
+	background-color: white;
+	z-index: 0;
+	overflow-x: hidden;
+	transition: all .2s ease-out;
+	display: none;
+}
+
+.local-resource-tool .open {
+    width: 250px;
+}
+
+/* Styling for place details */
+.local-resource-tool .hero {
+    width: 100%;
+    object-fit: cover;
+    max-height: 166px;
+    display: block;
+}
+
+.local-resource-tool .place,
+.local-resource-tool p {
+    font-family: manropebold;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.local-resource-tool .details {
+    color: darkslategrey;
+    font-family: manrope;
+}
+
+.local-resource-tool a {
+    text-decoration: none;
+    color: cadetblue;
+}
+
+.local-resource-tool .map-info {
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 2%;
+	margin-bottom: 3%;
+}
+
+.local-resource-tool .search {
+	width: 89%;
+	margin-left: 5%;
+	margin-top: 3%;
+}
+
+.local-resource-tool .searchauto {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.local-resource-tool .panel, .local-resource-tool .map, .local-resource-tool .numbers, .local-resource-tool .list {
+	border-radius: 10px;
+	border: 1px solid #d8d8d8;
+	width: 95%;
+	margin-left: 2.5%;
+	background-color: white;
+}
+
+.local-resource-tool .map {
+	margin-left: 1%;
+}
+
+.local-resource-tool .panel {
+	padding: 0px;
+}
+
+.local-resource-tool .map h3, .local-resource-tool .panel h3, .local-resource-tool .list h3, .local-resource-tool .numbers h3 {
+	font-family: manropebold;
+	margin-top: 5px;
+}
+
+.local-resource-tool .map h6, .local-resource-tool .panel h6, .local-resource-tool .list h6, .local-resource-tool .numbers h6 {
+	font-family: manropelight;
+}
+
+.local-resource-tool .temp-img {
+	width: 100%;
+	border-radius: 10px;
+	height: 60vh;
+	margin-bottom: 2vh;
+	object-fit: cover;
+}
+
+.local-resource-tool .numbers .title {
+	padding-top: 1.5vh;
+	padding-bottom: 1.5vh;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	position: sticky;
+	top: 0;
+	background-color: white;
+}
+
+.local-resource-tool .numbers .title h4 {
+	font-family: manropebold;
+}
+
+.local-resource-tool .numbers .number {
+	padding-top: 1.5vh;
+	margin-top: 1.5vh;
+	border-bottom: 1px solid black;
+}
+
+.local-resource-tool .numbers .number h5 {
+	font-family: manropesemibold;
+}
+
+.local-resource-tool .numbers .number p {
+	padding: 0px;
+	font-family: manropethin;
+}
+
+.local-resource-tool #phoneNumbers {
+	height: 60vh;
+	overflow-y: auto;
+	visibility: hidden;
+}
+
+.local-resource-tool .info-text {
+	padding-left: 2vh;
+	padding-right: 2vh;
+}
+
+.local-resource-tool .searchbar {
+	display: inline;
+}
+
+.local-resource-tool .header-text {
+	width: 89%;
+	margin-left: 6%;
+	margin-top: 3%;
+}
+
+.local-resource-tool .header-text h1 {
+	font-family: manropebold;
+}
+
+.local-resource-tool .header-text h6 {
+	font-family: manropethin;
+	margin-top: 2vh;
+}
+
+.local-resource-tool .designed {
+	width: 90%;
+	margin-left: 5%;
+	font-size: 10px;
+	font-family: manropelight;
+}
+
+@media only screen and (max-width: 1200px) {
+	.local-resource-tool .panel, .local-resource-tool .map, .local-resource-tool .numbers, .local-resource-tool .list {
+	border-radius: 10px;
+	border: 1px solid #d8d8d8;
+	width: 98%;
+	margin-left: 0%;
+	margin-top: 2%;
+	}
+	.local-resource-tool .searchbarbar {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+	.local-resource-tool .panel {
+		margin-left: 7.33%;
+	}
+}
+
+@media only screen and (max-width: 920px) {
+	.local-resource-tool .searchbar {
+		display: flex; 
+		justify-content: center;
+		width: 100%;
+		padding: 0px;
+	}
+	.local-resource-tool .searchauto {
+		display: flex; 
+		justify-content: flex-start;
+		width: 100%;
+		padding: 0px;
+	}
+}
+
+.local-resource-tool .btn-primary {
+	background-color: blue;
+	color: white;
+	border: none;
+}
+
+.local-resource-tool .btn-primary:active {
+	background-color: black;
+	color: white;
+	border: none;
+}
+
+.local-resource-tool .btn-primary:hover {
+	background-color: black;
+	color: white;
+	border: none;
+}

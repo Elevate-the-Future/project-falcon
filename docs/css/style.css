@@ -156,16 +156,13 @@ body {
 
 .hero {
 	width: 100%;
-	height: 40vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-bottom: 5%;
 }
 
 .hero .text {
 	margin-top: 10%;
-	margin-bottom: auto;
 	color: white;
 	text-align: center;
 }
@@ -203,7 +200,7 @@ img.logo {
 	margin-left: auto;
 	margin-right: auto;
 	color: white;
-	margin-top: -5%;
+	margin-top: 5vh;
 }
 
 .row-info .col-lg-4, .row-info .col-lg-8 {
@@ -253,11 +250,10 @@ img.logo {
 }
 
 .row-business img {
-	width: 100%;
-	border-radius: 5px;
+	width: 90%;
+	margin-left: 5%;
 	object-position: center;
 	object-fit: cover;
-	border: 1px solid #d8d8d8;
 }
 
 .row-business .col-12 {
